@@ -1,0 +1,16 @@
+---
+- name: install nginx
+  apt:
+    name: nginx
+    state: present
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+- name: open ports for geth
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  with_items: "{{ports_to_open}}"
+  when: ansible_facts['os_family'] == "Debian"

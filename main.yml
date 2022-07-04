@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  roles:
+    - ansible-role-docker
+- hosts: localhost
+  roles:
+    - ansible-geth-role

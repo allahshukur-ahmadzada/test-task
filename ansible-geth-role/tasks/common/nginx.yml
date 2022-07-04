@@ -1,0 +1,8 @@
+---
+- name: copy nginx config
+  template:
+    src: "ethereum-rpc.conf.j2"
+    dest: "/etc/nginx/conf.d/ethereum-rpc.conf"
+    mode: 0640
+  notify:
+    - restart nginx

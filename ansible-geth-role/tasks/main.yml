@@ -1,0 +1,9 @@
+---
+- name: preflight tasks
+  include_tasks: "common/preflight.yml"
+- name: include distribution based tasks
+  include_tasks: "{{ ansible_os_family|lower }}/main.yml"
+- name: include  docker tasks
+  include_tasks: "common/docker.yml"
+- name: include nginx tasks
+  include_tasks: "common/nginx.yml"

@@ -1,0 +1,33 @@
+---
+- name: Copy Dockerfile
+  template:
+    src: "Dockerfile.j2"
+    dest: "{{main_folder}}/Dockerfile"
+    owner: "{{user}}"
+    group: "{{group}}"
+    mode: 0640
+- name: copy genesis file
+  template:
+    src: "genesis.json.j2"
+    dest: "{{main_folder}}/genesis.json"
+    owner: "{{user}}"
+    group: "{{group}}"
+    mode: 0640
+- name: Copy Docker compose file
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{main_folder}}/docker-compose.yml"
+    owner: "{{user}}"
+    group: "{{group}}"
+    mode: 0640
+- name: Copy .env file
+  template:
+    src: ".env.j2"
+    dest: "{{main_folder}}/.env"
+    owner: "{{user}}"
+    group: "{{group}}"
+    mode: 0640
+- name: start docker containers
+  docker_compose:
+    project_src: "{{ main_folder }}"
+  register: output

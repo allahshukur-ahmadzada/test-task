@@ -1,0 +1,12 @@
+#crypto
+user: 'ethereum'
+group: 'ethereum'
+main_folder: '/home/ethereum'
+crypto: 'ethereum'
+rpc_ip: '127.0.0.1'
+rpc_port: '8545'
+#nginx
+ports_to_open: '["443","80"]'
+https_port: '443'
+http_port: '80'
+server_name: 'ethereum.mycontainer.com'

@@ -1,0 +1,9 @@
+---
+- name: add crypto user
+  user:
+    name: "{{user}}"
+    home: "{{main_folder}}"
+    shell: /bin/bash
+    groups: docker
+    append: yes
+    state: present
